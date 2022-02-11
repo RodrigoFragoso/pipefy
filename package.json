@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "cypress": "^9.4.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-xpath": "^1.6.2",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "mochawesome": "^7.0.1",
+    "mochawesome-merge": "^4.2.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open-qa": "npx cypress open --env configFile=qa",
+    "delete:reports": "rm -rf ./cypress/results-report/*.* || true",
+    "merge:reports-test-qa": "npx mochawesome-merge ./cypress/results-report/*.json > ./cypress/results-report/result-test-qa.json",
+    "generate:mochawesome-report-api-test-qa": "npx marge ./cypress/results-report/result-test-qa.json --charts --code --reportPageTitle 'Pipefy-QA' --reportTitle 'API-QA Pipefy' --reportDir ./cypress/results-report/ --inline --autoOpen && sleep 5",
+    "generate:mochawesome-report-ui-test-qa": "npx marge ./cypress/results-report/result-test-qa.json --charts --code --reportPageTitle 'Pipefy-QA' --reportTitle 'UI-QA Pipefy' --reportDir ./cypress/results-report/ --inline --autoOpen && sleep 5",
+    "move:report-html": "mv ./cypress/results-report/*.html ./cypress/results-report/api-test",
+    "regression-test:api:qa": "npm install; npm run delete:reports; npx cypress run --env configFile=qa --spec 'cypress/integration/api/**'; npm run merge:reports-test-qa; sleep 5; npm run generate:mochawesome-report-api-test-qa",
+    "smoke-test:ui:qa": "npm install; npm run delete:reports; npx cypress run --env configFile=qa --spec 'cypress/integration/ui/**'; npm run merge:reports-test-qa; sleep 5; npm run generate:mochawesome-report-ui-test-qa"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7",
+    "faker-br": "^0.4.1",
+    "mochawesome-report-generator": "^6.0.1"
+  }
+}

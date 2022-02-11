@@ -1,0 +1,33 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
+  "baseUrl": "https://app.pipefy.com/public/form/6qhKljB1",
+  "api": {
+    "url": "https://api.pipefy.com/graphql",
+    "token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyIjp7ImlkIjozMDE5OTYzODMsImVtYWlsIjoicm9kcmlnb3BvbG9mcmFnb3NvQGdtYWlsLmNvbSIsImFwcGxpY2F0aW9uIjozMDAxNDI4Njh9fQ.K1yHw__NJhPo5OBfMjl-tkjUkHU7NV7cYs6zhZUCKjHt0AVZnAbg6vMjT5dq6gyZPwYo7MjLPCAtEqTedL72QQ",
+    "durationRequest": 2000,
+    "organizationId": 300731219,
+    "organizationName": "Teste Fragoso"
+  },
+  "experimentalSourceRewriting": true,
+  "modifyObstructiveCode": true,
+  "chromeWebSecurity": false,
+  "watchForFileChanges": false,
+  "pageLoadTimeout": 60000,
+  "viewportWidth": 1400,
+  "viewportHeight": 1000,
+  "failOnStatusCode": false,
+  "video": false,
+  "retries": {
+    "runMode": 1,
+    "openMode": 0
+  },
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "overwrite": false,
+    "timestamp": true,
+    "html": false,
+    "json": true,
+    "reportDir": "cypress/results-report/"
+  },
+  "screenshotsFolder": "cypress/screenshots/"
+}
